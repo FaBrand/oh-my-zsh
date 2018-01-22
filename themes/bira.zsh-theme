@@ -15,7 +15,10 @@ fi
 
 ZSH_THEME_RVM_PROMPT_OPTIONS="i v g"
 
-PROMPT="╭─${conda_prompt}${user_host}${current_dir}${rvm_ruby}${vcs_branch}${venv_prompt}${kube_prompt}
+# Get Vi mode prompt to provide visual feedback if normal mode is active
+local vim_prompt='$(vi_mode_prompt_info)' # call function from plugin vim-mode
+
+PROMPT="╭─${conda_prompt}${user_host}${vim_prompt:+${vim_prompt} }${current_dir}${rvm_ruby}${vcs_branch}${venv_prompt}${kube_prompt}
 ╰─%B${user_symbol}%b "
 RPROMPT="%B${return_code}%b"
 
