@@ -92,13 +92,13 @@ fi
 ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 
 # Default settings
-REPO=${REPO:-ohmyzsh/ohmyzsh}
+REPO=${REPO:-FaBrand/oh-my-zsh}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 
 # Other options
 CHSH=${CHSH:-yes}
-RUNZSH=${RUNZSH:-yes}
+RUNZSH=${RUNZSH:-no}
 KEEP_ZSHRC=${KEEP_ZSHRC:-no}
 OVERWRITE_CONFIRMATION=${OVERWRITE_CONFIRMATION:-yes}
 
