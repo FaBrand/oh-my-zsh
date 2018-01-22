@@ -20,8 +20,14 @@ else
   fi
 fi
 local git_branch='$(git_prompt_info)%{$reset_color%}'
+#
+
+# Get Vi mode prompt to provide visual feedback if normal mode is active
+local vim_prompt='$(vi_mode_prompt_info)' # call function from plugin vim-mode
 
 PROMPT="╭─${user_host} ${current_dir} ${rvm_ruby} ${git_branch}
+╰─%B${user_symbol}%b "
+PROMPT="╭─${user_host} ${vim_prompt} ${current_dir} ${rvm_ruby} ${git_branch}
 ╰─%B${user_symbol}%b "
 RPS1="%B${return_code}%b"
 
