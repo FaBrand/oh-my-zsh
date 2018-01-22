@@ -95,6 +95,7 @@ main() {
   fi
 
   printf "${GREEN}"
+  echo '      A customized version of                        '
   echo '         __                                     __   '
   echo '  ____  / /_     ____ ___  __  __   ____  _____/ /_  '
   echo ' / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ '
@@ -110,7 +111,6 @@ main() {
   echo 'p.p.s. Get stickers and t-shirts at http://shop.planetargon.com.'
   echo ''
   printf "${NORMAL}"
-  # env zsh
 }
 
 main
