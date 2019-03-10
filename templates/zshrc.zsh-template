@@ -71,6 +71,7 @@ plugins=(
     docker
     repo
     git
+    bazel
 )
 
 source $ZSH/oh-my-zsh.sh
