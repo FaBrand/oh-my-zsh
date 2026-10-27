@@ -1,0 +1,153 @@
+case "$CATPPUCCIN_FLAVOR" in
+  frappe)
+    catppuccin_rosewater="#f2d5cf"
+    catppuccin_flamingo="#eebebe"
+    catppuccin_pink="#f4b8e4"
+    catppuccin_mauve="#ca9ee6"
+    catppuccin_red="#e78284"
+    catppuccin_maroon="#ea999c"
+    catppuccin_peach="#ef9f76"
+    catppuccin_yellow="#e5c890"
+    catppuccin_green="#a6d189"
+    catppuccin_teal="#81c8be"
+    catppuccin_sky="#99d1db"
+    catppuccin_sapphire="#85c1dc"
+    catppuccin_blue="#8caaee"
+    catppuccin_lavender="#babbf1"
+    catppuccin_text="#c6d0f5"
+    catppuccin_subtext1="#b5bfe2"
+    catppuccin_subtext0="#a5adce"
+    catppuccin_overlay2="#949cbb"
+    catppuccin_overlay1="#838ba7"
+    catppuccin_overlay0="#737994"
+    catppuccin_surface2="#626880"
+    catppuccin_surface1="#51576d"
+    catppuccin_surface0="#414559"
+    catppuccin_base="#303446"
+    catppuccin_mantle="#292c3c"
+    catppuccin_crust="#232634"
+    ;;
+  latte)
+    catppuccin_rosewater="#dc8a78"
+    catppuccin_flamingo="#dd7878"
+    catppuccin_pink="#ea76cb"
+    catppuccin_mauve="#8839ef"
+    catppuccin_red="#d20f39"
+    catppuccin_maroon="#e64553"
+    catppuccin_peach="#fe640b"
+    catppuccin_yellow="#df8e1d"
+    catppuccin_green="#40a02b"
+    catppuccin_teal="#179299"
+    catppuccin_sky="#04a5e5"
+    catppuccin_sapphire="#209fb5"
+    catppuccin_blue="#1e66f5"
+    catppuccin_lavender="#7287fd"
+    catppuccin_text="#4c4f69"
+    catppuccin_subtext1="#5c5f77"
+    catppuccin_subtext0="#6c6f85"
+    catppuccin_overlay2="#7c7f93"
+    catppuccin_overlay1="#8c8fa1"
+    catppuccin_overlay0="#9ca0b0"
+    catppuccin_surface2="#acb0be"
+    catppuccin_surface1="#bcc0cc"
+    catppuccin_surface0="#ccd0da"
+    catppuccin_base="#eff1f5"
+    catppuccin_mantle="#e6e9ef"
+    catppuccin_crust="#dce0e8"
+    ;;
+  macchiato)
+    catppuccin_rosewater="#f4dbd6"
+    catppuccin_flamingo="#f0c6c6"
+    catppuccin_pink="#f5bde6"
+    catppuccin_mauve="#c6a0f6"
+    catppuccin_red="#ed8796"
+    catppuccin_maroon="#ee99a0"
+    catppuccin_peach="#f5a97f"
+    catppuccin_yellow="#eed49f"
+    catppuccin_green="#a6da95"
+    catppuccin_teal="#8bd5ca"
+    catppuccin_sky="#91d7e3"
+    catppuccin_sapphire="#7dc4e4"
+    catppuccin_blue="#8aadf4"
+    catppuccin_lavender="#b7bdf8"
+    catppuccin_text="#cad3f5"
+    catppuccin_subtext1="#b8c0e0"
+    catppuccin_subtext0="#a5adcb"
+    catppuccin_overlay2="#939ab7"
+    catppuccin_overlay1="#8087a2"
+    catppuccin_overlay0="#6e738d"
+    catppuccin_surface2="#5b6078"
+    catppuccin_surface1="#494d64"
+    catppuccin_surface0="#363a4f"
+    catppuccin_base="#24273a"
+    catppuccin_mantle="#1e2030"
+    catppuccin_crust="#181926"
+    ;;
+  *)
+    catppuccin_rosewater="#f5e0dc"
+    catppuccin_flamingo="#f2cdcd"
+    catppuccin_pink="#f5c2e7"
+    catppuccin_mauve="#cba6f7"
+    catppuccin_red="#f38ba8"
+    catppuccin_maroon="#eba0ac"
+    catppuccin_peach="#fab387"
+    catppuccin_yellow="#f9e2af"
+    catppuccin_green="#a6e3a1"
+    catppuccin_teal="#94e2d5"
+    catppuccin_sky="#89dceb"
+    catppuccin_sapphire="#74c7ec"
+    catppuccin_blue="#89b4fa"
+    catppuccin_lavender="#b4befe"
+    catppuccin_text="#cdd6f4"
+    catppuccin_subtext1="#bac2de"
+    catppuccin_subtext0="#a6adc8"
+    catppuccin_overlay2="#9399b2"
+    catppuccin_overlay1="#7f849c"
+    catppuccin_overlay0="#6c7086"
+    catppuccin_surface2="#585b70"
+    catppuccin_surface1="#45475a"
+    catppuccin_surface0="#313244"
+    catppuccin_base="#1e1e2e"
+    catppuccin_mantle="#181825"
+    catppuccin_crust="#11111b"
+    ;;
+esac
+
+local return_code="%(?..%F{${catppuccin_red}}%? ↵%{$reset_color%})"
+local user_host="%B%(!.%F{${catppuccin_red}}.%F{${catppuccin_green}})%n@%m%{$reset_color%} "
+local user_symbol='%(!.#.$)'
+local current_dir="%B%F{${catppuccin_peach}}%~ %{$reset_color%}"
+local conda_prompt='$(conda_prompt_info)'
+
+local vcs_branch='$(git_prompt_info)$(hg_prompt_info)'
+local rvm_ruby='$(ruby_prompt_info)'
+local venv_prompt='$(virtualenv_prompt_info)'
+if [[ "${plugins[@]}" =~ 'kube-ps1' ]]; then
+    local kube_prompt='$(kube_ps1)'
+else
+    local kube_prompt=''
+fi
+
+ZSH_THEME_RVM_PROMPT_OPTIONS="i v g"
+
+PROMPT="╭─${conda_prompt}${user_host}${current_dir}${rvm_ruby}${vcs_branch}${venv_prompt}${kube_prompt}
+╰─%B${user_symbol}%b "
+RPROMPT="%B${return_code}%b"
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{${catppuccin_yellow}}‹"
+ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%F{${catppuccin_red}}●%F{${catppuccin_yellow}}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{${catppuccin_yellow}}"
+
+ZSH_THEME_HG_PROMPT_PREFIX="$ZSH_THEME_GIT_PROMPT_PREFIX"
+ZSH_THEME_HG_PROMPT_SUFFIX="$ZSH_THEME_GIT_PROMPT_SUFFIX"
+ZSH_THEME_HG_PROMPT_DIRTY="$ZSH_THEME_GIT_PROMPT_DIRTY"
+ZSH_THEME_HG_PROMPT_CLEAN="$ZSH_THEME_GIT_PROMPT_CLEAN"
+
+ZSH_THEME_RUBY_PROMPT_PREFIX="%F{${catppuccin_red}}‹"
+ZSH_THEME_RUBY_PROMPT_SUFFIX="› %{$reset_color%}"
+
+ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX="%F{${catppuccin_green}}‹"
+ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX="› %{$reset_color%}"
+ZSH_THEME_VIRTUALENV_PREFIX="$ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX"
+ZSH_THEME_VIRTUALENV_SUFFIX="$ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX"
