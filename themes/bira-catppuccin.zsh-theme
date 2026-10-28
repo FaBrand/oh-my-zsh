@@ -113,10 +113,10 @@ case "$CATPPUCCIN_FLAVOR" in
     ;;
 esac
 
-local return_code="%(?..%F{${catppuccin_red}}%? ↵%{$reset_color%})"
-local user_host="%B%(!.%F{${catppuccin_red}}.%F{${catppuccin_green}})%n@%m%{$reset_color%} "
+local return_code="%(?..%F{${catppuccin_red}}%? ↵%f)"
+local user_host="%B%(!.%F{${catppuccin_red}}%n@%m.%F{${catppuccin_green}}%n%b%F{${catppuccin_overlay1}}@%B%F{${catppuccin_green}}%m)%b%f "
 local user_symbol='%(!.#.$)'
-local current_dir="%B%F{${catppuccin_peach}}%~ %{$reset_color%}"
+local current_dir="%B%F{${catppuccin_peach}}%~%b%f "
 local conda_prompt='$(conda_prompt_info)'
 
 local vcs_branch='$(git_prompt_info)$(hg_prompt_info)'
@@ -131,11 +131,11 @@ fi
 ZSH_THEME_RVM_PROMPT_OPTIONS="i v g"
 
 PROMPT="╭─${conda_prompt}${user_host}${current_dir}${rvm_ruby}${vcs_branch}${venv_prompt}${kube_prompt}
-╰─%B${user_symbol}%b "
+╰─%B${user_symbol}%b%f "
 RPROMPT="%B${return_code}%b"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{${catppuccin_yellow}}‹"
-ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="›%f "
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{${catppuccin_red}}●%F{${catppuccin_yellow}}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%F{${catppuccin_yellow}}"
 
@@ -145,9 +145,9 @@ ZSH_THEME_HG_PROMPT_DIRTY="$ZSH_THEME_GIT_PROMPT_DIRTY"
 ZSH_THEME_HG_PROMPT_CLEAN="$ZSH_THEME_GIT_PROMPT_CLEAN"
 
 ZSH_THEME_RUBY_PROMPT_PREFIX="%F{${catppuccin_red}}‹"
-ZSH_THEME_RUBY_PROMPT_SUFFIX="› %{$reset_color%}"
+ZSH_THEME_RUBY_PROMPT_SUFFIX="›%f "
 
 ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX="%F{${catppuccin_green}}‹"
-ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX="› %{$reset_color%}"
+ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX="›%f "
 ZSH_THEME_VIRTUALENV_PREFIX="$ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX"
 ZSH_THEME_VIRTUALENV_SUFFIX="$ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX"
